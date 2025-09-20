@@ -12,7 +12,7 @@ recuperarEntero=function(idComponente){
     valorEntero=parseInt(valor);
     return valorEntero;
 }
-recuperarFlotante=function(idComponente){
+recuperarFloat=function(idComponente){
     let valor;
     let valorFloat;
     valor=recuperarTexto(idComponente);
