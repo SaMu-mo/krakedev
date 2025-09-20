@@ -1,9 +1,9 @@
 recuperarTexto=function(idComponente){
-    let cmpTexto;
-    let valor;
-    cmpTexto=document.getElementById(idComponente);
-    valor=cmpTexto.value;
-    return valor;
+    let componente;
+    let valor
+    componente=document.getElementById(idComponente);
+    valor = componente.value
+    return valor
 }
 recuperarEntero=function(idComponente){
     let valor;
@@ -24,8 +24,14 @@ mostrarTexto=function(idComponente,mensaje){
     componente=document.getElementById(idComponente);
     componente.innerText=mensaje;
 }
-cambiarImagen=function(idComponente,imagen){
+mostrarImagen=function(idComponente,imagen){
     let componente;
     componente=document.getElementById(idComponente);
     componente.src=imagen;
+}
+
+cambiarCajaTexto=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.value=mensaje;
 }

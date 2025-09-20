@@ -12,5 +12,7 @@ saludar = function(){
 
     mostrarTexto("lblResultado", mensajeBienvenida)
 
-    cambiarImagen("imgSaludo","./Imagenes/GifGanar.gif")
+    mostrarImagen("imgSaludo","./Imagenes/GifGanar.gif")
+
+    cambiarCajaTexto("txtNombre","")
 }
