@@ -11,4 +11,6 @@ saludar = function(){
     let mensajeBienvenida = "Bienvenido " +nombre+" "+apellido
 
     mostrarTexto("lblResultado", mensajeBienvenida)
+
+    cambiarImagen("imgSaludo","./Imagenes/GifGanar.gif")
 }
