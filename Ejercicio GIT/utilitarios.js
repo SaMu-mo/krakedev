@@ -19,7 +19,7 @@ recuperarFloat=function(idComponente){
     valorFloat=parseFloat(valor);
     return valorFloat;
 }
-cambiarTexto=function(idComponente,mensaje){
+mostrarTexto=function(idComponente,mensaje){
     let componente;
     componente=document.getElementById(idComponente);
     componente.innerText=mensaje;

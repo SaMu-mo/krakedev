@@ -7,4 +7,8 @@ saludar = function(){
     let edad = recuperarEntero("txtEdad");
 
     let estatura = recuperarFloat("txtEstatura");
+
+    let mensajeBienvenida = "Bienvenido " +nombre+" "+apellido
+
+    mostrarTexto("lblResultado", mensajeBienvenida)
 }
