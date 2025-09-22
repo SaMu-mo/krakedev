@@ -15,7 +15,7 @@ calcularPromedioNotas=function() {
     mostrarImagen("imgResultado", "./imagenes/buenTrabajo.jpeg");
   } else if (promedio > 8 && promedio <= 10) {
     mostrarTexto("lblMensaje", "EXCELENTE");
-    mostrarImagen("imgResultado", "./imagenes/excelente.jpeg");
+    mostrarImagen("imgResultado", "./imagenes/excelente.gif");
   } else {
     mostrarTexto("lblMensaje", "DATOS INCORRECTOS");
     mostrarImagen("imgResultado", "./imagenes/datosIncorrectos.jpeg");
