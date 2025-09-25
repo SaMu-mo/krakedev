@@ -1,0 +1,89 @@
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.principal {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 350px;
+}
+
+.titulo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: #333;
+}
+
+.cajaTexto {
+    width: 100px;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.estiloBoton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.estiloBoton:hover {
+    background-color: #45a049;
+}
+
+.zonaResultado {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Resultado {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 220px;
+}
+
+.Resultado div:first-child {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.Provincia {
+    color: black;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.4;
+}
