@@ -1,11 +1,8 @@
 
 mostrarImagen=function(idComponente,rutaImagen){
-    let componente=document.getElementById(idComponente);
-    if(!componente){
-        console.error("ID no encontrado:", idComponente);
-        return;
-    }
-    componente.src = rutaImagen;
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.src =  rutaImagen;
 };
 
 mostrarTexto=function(idComponente,mensaje){

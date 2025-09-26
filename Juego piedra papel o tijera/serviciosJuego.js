@@ -15,25 +15,17 @@ generarElemento = function () {
         return "tijera";
     }
 }
-determinarGanador = function (e1, e2) {
-    if (e1 === e2) return "0";
-    let ganaJ1 = (e1 === "piedra" && e2 === "tijera") || (e1 === "papel" && e2 === "piedra") || (e1 === "tijera" && e2 === "papel");
-    if (ganaJ1) {
-        return "1";
+determinarGanador = function (eleccionJugador1, eleccionJugador2) {
+    if (eleccionJugador1 === eleccionJugador2) return "0";
+    let ganadorJugador1 = (eleccionJugador1 === "piedra" && eleccionJugador2 === "tijera") || (eleccionJugador1 === "papel" && eleccionJugador2 === "piedra") || (eleccionJugador1 === "tijera" && eleccionJugador2 === "papel");
+    if (ganadorJugador1) {
+        return 1;
     } else {
-        return "2";
+        return 2;
     }
 }
 
 
-generarRuta = function (eleccion) {
-    if (eleccion == 1) {
-        return "./imagenes/piedra.jpeg";
-    }
-    else if (eleccion == 2) {
-        return "./imagenes/papel.jpg";
-    }
-    else {
-        return "./imagenes/tijera.jpeg";
-    }
+generarRuta = function (nombre) {
+    return "./Imagenes/" + nombre + ".jpeg";
 }

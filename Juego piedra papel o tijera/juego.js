@@ -1,9 +1,9 @@
 puntosUsuario = 0;
 puntosComputadora = 0;
-juegoTerminado = false;   // <— nuevo
+juegoTerminado = false;   
 
 jugar = function(seleccionado){
-    if (juegoTerminado) { return; }   // <— evita seguir jugando si ya terminó
+
 
     let opcion = generarElemento();
 
@@ -24,17 +24,17 @@ jugar = function(seleccionado){
         mostrarTextoEnCaja("puntosComputadora", puntosComputadora);
     }
 
-    // --- FIN DE JUEGO A 5 ---
+    
     if (puntosUsuario === 5) {
         juegoTerminado = true;
-        mostrarTexto("resultado", "🎉 ¡Felicidades, GANADOR!");
-        // alert("¡Felicidades, GANADOR!"); // opcional
+        mostrarTexto("resultado", "HAS GANADO EL JUEGO");
+        
     } else if (puntosComputadora === 5) {
         juegoTerminado = true;
-        mostrarTexto("resultado", "😞 Has perdido");
+        mostrarTexto("resultado", "Has perdido");
         // alert("Has perdido"); // opcional
     }
-};
+}
 
 limpiar = function(){
     puntosUsuario = 0;
@@ -47,4 +47,4 @@ limpiar = function(){
 
     mostrarImagen("imgJugador", "");
     mostrarImagen("imgComputadora", "");
-};
+}
