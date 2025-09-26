@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta>
+  <title>Piedra, Papel o Tijera</title>
+  <!-- Carga los scripts con defer para que el DOM exista cuando se usen los IDs -->
+  <script src="utilitarios.js" defer></script>
+  <script src="serviciosJuego.js" defer></script>
+  <script src="juego.js" defer></script>
+</head>
+<body>
+  <h1>PIEDRA, PAPEL O TIJERA</h1>
+
+  <!-- Botones -->
+  <div>
+    <input type="button" value="Piedra" onclick="jugar('piedra')">
+    <input type="button" value="Papel"  onclick="jugar('papel')">
+    <input type="button" value="Tijera" onclick="jugar('tijera')">
+    <input type="button" value="Nueva partida" onclick="limpiar()">
+  </div>
+
+  <!-- Imágenes (OJO con los IDs) -->
+  <h3>Jugador</h3>
+  <img id="imgJugador" width="120">
+
+  <h3>Computadora</h3>
+  <img id="imgComputadora" width="120">  <!-- EXACTAMENTE este ID -->
+
+  <!-- Marcadores -->
+  <h3>Puntajes</h3>
+  <div>Usuario: <input id="puntosUsuario" value="0" readonly></div>
+  <div>Computadora: <input id="puntosComputadora" value="0" readonly></div>
+
+  <!-- Mensaje -->
+  <h3 id="resultado">—</h3>
+</body>
+</html>
