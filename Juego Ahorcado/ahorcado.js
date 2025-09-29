@@ -26,3 +26,32 @@ guardarPalabra = function (){
     } 
     return PalabraSecreta
 }
+
+mostrarLetra = function(letra, posicion) {
+    let letraMostrada = "div" + posicion;   
+    mostrarTexto(letraMostrada, letra);     
+}
+
+validar = function(letra){
+    let letrasEncontradas = 0
+    PalabraSecreta = guardarPalabra();
+
+    for(let i=0;i<PalabraSecreta.length;i++){
+        if(PalabraSecreta.charAt(i)==letra){
+            mostrarLetra(letra, i)
+            letrasEncontradas = letrasEncontradas +1
+        }
+    }
+}
+
+ingresarLetra = function(){
+    let letraIngresada 
+    letraIngresada = recuperarTexto("txtLetra")
+    if(esMayuscula(letraIngresada)){
+        validar(letraIngresada)
+    } else{
+        alert("SOLO SE ACEPTAN LETRAS MAYUSCULAS")
+    }
+}
+
+
