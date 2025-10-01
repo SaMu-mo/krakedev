@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="ejercicios1.js"></script>
-        <script src="utilitarios.js"></script>
-    </head>
-    <body>
-        <input type="text" id="txtNota">
-        <input type="button" value="Agregar Nota" onclick="probarAgregar();">
-        <input type="button" value="Prueba 1" onclick="agregarElementos();">
-         <input type="button" value="IMPRIMIR" onclick="recorrerArreglo();">
 
-         <h3 id="lblResultado">-</h3>
-         <input type="button" value="CALCULAR PROMEDIO" onclick="ejecutarPromedio();">
+<head>
+    <script src="ejercicios1.js"></script>
+    <script src="utilitarios.js"></script>
+</head>
+
+<body>
+    <input type="text" id="txtNota">
+    <input type="button" value="Agregar Nota" onclick="probarAgregar();">
+    <input type="button" value="Prueba 1" onclick="agregarElementos();">
+    <input type="button" value="IMPRIMIR" onclick="recorrerArreglo();">
+    <table>
+        <tr>
+            <th>CABECERA 1</th>
+            <th>CABECERA 2</th>
+            <th>CABECERA 3</th>
+        </tr>
+        <tr>
+            <td>celda 1</td>
+            <td>celda 2</td>
+            <td>celda 3</td>
+        </tr>
+        <tr>
+            <td>celda 4</td>
+            <td>celda 5</td>
+            <td>celda 6</td>
+
+        </tr>
+        <tr>
+            <td>celda 7</td>
+            <td>celda 8</td>
+            <td>celda 9</td>
+        </tr>
+
+    </table>
+    
+    <input type="button" value="generar Tabla" onclick="generarTabla();">
+    <input type="button" value="Mostrar Tabla" onclick="mostrarNotas();">
+
+    <div id="divtabla">
         
-    </body>
+
+    </div>
+
+    <h3 id="lblResultado">-</h3>
+    <input type="button" value="CALCULAR PROMEDIO" onclick="ejecutarPromedio();"> 
+        
+
+</body>
+
 </html>
