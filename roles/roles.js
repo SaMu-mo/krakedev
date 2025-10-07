@@ -32,6 +32,12 @@ mostrarFuncionEmpleado = function() {
     mostrarComponente("divEmpleado");
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardar");
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+
     mostrarEmpleados();
 }
 
@@ -46,4 +52,16 @@ mostrarFuncionResumen = function() {
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
 }
+esNuevo = false;
+
+ejecutarNuevo = function() {
+    let esNuevo = true;
+    habilitarComponente("btnGuardar");
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+}
+
+
 
