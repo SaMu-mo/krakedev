@@ -69,11 +69,11 @@ ejecutarNuevo = function () {
 //Crear Empleado
 
 buscarEmpleado = function (cedula) {
-    let cedulaBuscada = recuperarTexto("txtCedula");
+
     for (let i = 0; i < empleados.length; i++) {
-        if (cedulaBuscada == empleados[i].cedula) {
+        if (cedula == empleados[i].cedula) {
             return empleados[i];
-        } 
+        }
     }
     return null;
 }
@@ -148,7 +148,7 @@ guardar = function () {
             }
         }
     }
-    
+
 
     let textoSueldo = recuperarTexto("txtSueldo");
     let sueldo = recuperarFloat("txtSueldo");
@@ -167,28 +167,38 @@ guardar = function () {
         return false;
     }
 
-if (esNuevo === true) { 
-    let empleado = {};
-    empleado.cedula = cedula;
-    empleado.nombre = nombre;
-    empleado.apellido = apellido;
-    empleado.sueldo = sueldo;
+    if (esNuevo === true) {
 
+        if (buscarEmpleado1(cedula) !== null) {
 
-    let resultado = agregarEmpleado(empleado);
-
-    if (resultado === true) {
+            alert("El empleado con la cédula " + cedula + " ya existe.");
+            return false;
+        }
+        let empleado = {};
+        empleado.cedula = cedula;
+        empleado.nombre = nombre;
+        empleado.apellido = apellido;
+        empleado.sueldo = sueldo;
+        empleados.push(empleado);
+        alert("Empleado agregado correctamente.");
         mostrarEmpleados();
+        deshabilitaropciones();
+        esNuevo = false;
+
+
     } else {
-        alert("El empleado con la cedula " + cedula + " ya existe.");
+        let trabajador = buscarEmpleado1(cedula);
+        if (trabajador === null) {
+            alert("El empleado no existe.");
+            return false;
+        }
+        trabajador.nombre = nombre;
+        trabajador.apellido = apellido;
+        trabajador.sueldo = sueldo;
+        alert("Empleado modificado correctamente.");
+        mostrarEmpleados();
+        deshabilitaropciones();
     }
-
-}
-deshabilitaropciones();
-
-
-
-
 }
 
 deshabilitaropciones = function () {
@@ -198,3 +208,47 @@ deshabilitaropciones = function () {
     deshabilitarComponente("txtApellido");
     deshabilitarComponente("txtSueldo");
 }
+
+
+
+ejecutarBusqueda = function () {
+    let cedulaBuscada = recuperarTexto("txtBusquedaCedula");
+    let empleado = buscarEmpleado1(cedulaBuscada);
+    if (empleado === null) {
+        alert("El empleado no existe.");
+    }
+
+    mostrarTextoEnCaja("txtCedula", empleado.cedula);
+    mostrarTextoEnCaja("txtNombre", empleado.nombre);
+    mostrarTextoEnCaja("txtApellido", empleado.apellido);
+    mostrarTextoEnCaja("txtSueldo", empleado.sueldo);
+    deshabilitarComponente("txtCedula");
+    habilitarComponente("btnGuardar");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    esNuevo = false;
+}
+
+
+buscarEmpleado1 = function (cedula) {
+
+    for (let i = 0; i < empleados.length; i++) {
+        if (cedula == empleados[i].cedula) {
+            return empleados[i];
+        }
+    }
+    return null;
+}
+
+limpiar = function () {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo", "");
+    mostrarTextoEnCaja("txtBusquedaCedula", "");
+    deshabilitaropciones();
+    esNuevo = false;
+}
+
+
