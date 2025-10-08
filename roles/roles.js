@@ -252,3 +252,48 @@ limpiar = function () {
 }
 
 
+// Funciones de roles parte 4 
+
+buscarPorRol = function () {
+    let busqueda = recuperarTexto("txtBusquedaCedulaRol");
+    let encontrado = false;
+    for (let i = 0; i < empleados.length; i++) {
+        if (empleados[i].cedula == busqueda) {
+            mostrarTexto("infoNombre", empleados[i].nombre + " " + empleados[i].apellido);
+            mostrarTexto("infoSueldo", empleados[i].sueldo);
+            mostrarTexto("infoCedula", empleados[i].cedula);
+            encontrado = true;
+            break;
+        }
+    }
+    if (!encontrado) {
+        alert("Empleado no encontrado.");
+}
+}
+
+calcularAporteEmpleado = function (sueldo) {
+    let aporte = sueldo * 9.45 / 100;
+    return aporte;
+}
+
+
+calcularValorAPagar = function(sueldo, aporte, descuento) {
+    let valorPagar = sueldo - aporte - descuento;
+    return valorPagar;
+}
+
+
+calcularRol = function (){
+    let sueldo = recuperarTextoDiv("infoSueldo");
+    let descuento = recuperarFloat("txtDescuentos")
+    if (isNaN(descuento)){
+        mostrarTexto("lblErrorDescuentos", "El descuento debe ser un número válido.")
+    } else if (descuento < 0 || descuento > sueldo) {
+        mostrarTexto("lblErrorDescuentos", "El descuento debe ser valido y no debe exceder el sueldo.")
+    }
+    let aporte = calcularAporteEmpleado(sueldo);
+    mostrarTexto("infoIESS", aporte);
+    let valorPagar = calcularValorAPagar(sueldo, aporte, descuento);
+    mostrarTexto("infoPago", valorPagar);
+
+}

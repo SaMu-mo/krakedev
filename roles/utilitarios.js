@@ -50,3 +50,26 @@ deshabilitarComponente = function(idComponente){
 habilitarComponente = function(idComponente){
     document.getElementById(idComponente).disabled = false;
 }
+
+//FUNCIONES EXTRA CREADAS 
+
+recuperarTextoDiv = function(idComponente){
+    let componente;
+    let valorLeido;
+    componente = document.getElementById(idComponente);
+    valorLeido = componente.textContent;   //.textContent para obtener el texto incluyendo los espacios en blanco
+    return valorLeido;
+}
+
+recuperarIntDiv = function(idComponente){
+    let valorCaja = recuperarTextoDiv(idComponente);
+    let valorEntero = parseInt(valorCaja);
+    return valorEntero; 
+}
+
+recuperarFloatDiv = function(idComponente){
+    let valorCaja = recuperarTextoDiv(idComponente);
+    let valorFlotante = parseFloat(valorCaja);
+    return valorFlotante; 
+}
+
