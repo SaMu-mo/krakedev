@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="notas.css" />
+    <script src="orden.js"></script>
+    <script src="utilitarios.js"></script>
+</head>
+
+<body onload="mostrarpersonas();">
+    <div class="principal">
+        <div class="logoEscuela">
+            <img src="logoKrakeDev.png" width="80%" />
+        </div>
+
+        <div class="contenido">
+            <div class="titulo">
+                PERSONAS
+            </div>
+
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    NOMBRE
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota1"/>
+                    <div class="error" id="lblError1"></div>
+                </div>
+            </div>
+           
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    EDAD
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota2"/>
+                    <div class="error" id="lblError2"></div>
+                </div>
+            </div>
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PERSONA MAYOR 
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota3"/>
+                    <div class="error" id="lblError2"></div>
+                </div>
+            </div>
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PERSONA MENOR
+                </div>
+                <div>
+                    <input type="text" class="cajaTexto" id="txtNota4"/>
+                    <div class="error" id="lblError2"></div>
+                </div>
+            </div>
+            
+            <div class="botones">
+                <div class="contenedorBoton">
+                    <input type="button" value="CALCULAR PERSONA MAYOR"
+                     class="estiloBoton" onclick="determinarMayor();" />
+                </div>
+                <div class="botones">
+                <div class="contenedorBoton">
+                    <input type="button" value="CALCULAR PERSONA MENOR"
+                     class="estiloBoton" onclick="determinarMenor();" />
+                </div>
+                <div class="contenedorBoton">
+                    <input type="button" value="GUARDAR"
+                     class="estiloBoton" onclick="agregarPersona();" />
+                </div>
+             </div>
+        </div>
+        <div class="areaResultado">
+            <div class="resultado">
+                <div>
+                    TABLA:
+                </div>
+                <div id="lblResultado">
+                    
+                </div>
+            </div>
+           
+            <div class="imagenResultado">
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
