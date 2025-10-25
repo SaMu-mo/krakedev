@@ -1,18 +1,17 @@
 let esNuevo = false;
 
 let empleados = [
-    { cedula: "1714616123", nombre: "John", apellido: "Cena", sueldo: 500.0 },
-    { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 },
-    { cedula: "1234567896", nombre: "Samuel", apellido: "Perez", sueldo: 1200.0 }
+    { cedula: "1714616123", nombre: "John Cena", apellido: "JHCena@gmail.com"  },
+    { cedula: "0914632123", nombre: "Luisa Gonzalez", apellido: "GonzalezLU@yahoo.com" },
+    { cedula: "1234567896", nombre: "Samuel Perez", apellido: "PerezA@gmail.com"}
 ]
 
 mostrarEmpleados = function () {
     let cmpTabla = document.getElementById("tablaEmpleados");
     let contenidoTabla = "<table><tr>"
-        + "<th>CEDULA</th>"
-        + "<th>NOMBRE</th>"
-        + "<th>APELLIDO</th>"
-        + "<th>SUELDO</th>"
+        + "<th>ID</th>"
+        + "<th>NOMBRE COMPLETO</th>"
+        + "<th>CORREO</th>"
         + "</tr>";
 
     let elementoCliente;
@@ -22,7 +21,6 @@ mostrarEmpleados = function () {
             + elementoCliente.cedula + "</td>"
             + "<td>" + elementoCliente.nombre + "</td>"
             + "<td>" + elementoCliente.apellido + "</td>"
-            + "<td>" + elementoCliente.sueldo + "</td>"
             + "</tr>";
     }
     contenidoTabla += "</table>";
@@ -100,10 +98,8 @@ guardar = function () {
     if (cedula === "") {
         mostrarTexto("lblErrorCedula", "Campo obligatorio.");
         valido = false;
-    } else if (cedula.length !== 10) {
-        mostrarTexto("lblErrorCedula", "La cédula debe tener exactamente 10 dígitos.");
-        valido = false;
-    } else {
+    } 
+    else {
         for (let i = 0; i < cedula.length; i++) {
             let codigo = cedula.charCodeAt(i);
             if (codigo < 48 || codigo > 57) {
@@ -118,14 +114,14 @@ guardar = function () {
     if (nombre === "") {
         mostrarTexto("lblErrorNombre", "Campo obligatorio.");
         valido = false;
-    } else if (nombre.length < 3) {
-        mostrarTexto("lblErrorNombre", "Debe tener al menos 3 letras.");
+    } else if (!esMayuscula(nombre.charAt(0))) {
+        mostrarTexto("lblErrorNombre", "Debe empezar con Mayuscula");
         valido = false;
     } else {
         for (let i = 0; i < nombre.length; i++) {
             let codigo = nombre.charCodeAt(i);
-            if (codigo < 65 || codigo > 90) {
-                mostrarTexto("lblErrorNombre", "El nombre debe estar en MAYÚSCULAS (A-Z).");
+            if (codigo < 65 || codigo > 122) {
+                mostrarTexto("lblErrorNombre", "El nombre solo puede tener letras");
                 valido = false;
                 break;
             }
@@ -137,33 +133,27 @@ guardar = function () {
     if (apellido === "") {
         mostrarTexto("lblErrorApellido", "Campo obligatorio.");
         valido = false;
-    } else if (apellido.length < 3) {
-        mostrarTexto("lblErrorApellido", "Debe tener al menos 3 letras.");
-        valido = false;
+    
     } else {
+        let arroba = false
         for (let i = 0; i < apellido.length; i++) {
             let codigo = apellido.charCodeAt(i);
-            if (codigo < 65 || codigo > 90) {
-                mostrarTexto("lblErrorApellido", "El apellido debe estar en MAYÚSCULAS (A-Z).");
-                valido = false;
-                break;
+            if (codigo == 64) {
+                arroba = true
+                //mostrarTexto("lblErrorApellido", "Debe contener una arroba su correo ");
+                
+            
             }
         }
+            if(arroba == false ) {
+                mostrarTexto("lblErrorApellido", "Debe contener una arroba su correo ");
+                valido = false
+        
     }
+}
 
 
-    let textoSueldo = recuperarTexto("txtSueldo");
-    let sueldo = recuperarFloat("txtSueldo");
-    if (textoSueldo === "") {
-        mostrarTexto("lblErrorSueldo", "Campo obligatorio.");
-        valido = false;
-    } else if (isNaN(sueldo)) {
-        mostrarTexto("lblErrorSueldo", "Debe ingresar un número válido.");
-        valido = false;
-    } else if (sueldo < 400 || sueldo > 5000) {
-        mostrarTexto("lblErrorSueldo", "El sueldo debe estar entre 400 y 5000.");
-        valido = false;
-    }
+    
 
     if (!valido) {
         return false;
@@ -180,7 +170,6 @@ guardar = function () {
         empleado.cedula = cedula;
         empleado.nombre = nombre;
         empleado.apellido = apellido;
-        empleado.sueldo = sueldo;
         empleados.push(empleado);
         alert("Empleado agregado correctamente.");
         mostrarEmpleados();
@@ -196,13 +185,20 @@ guardar = function () {
         }
         trabajador.nombre = nombre;
         trabajador.apellido = apellido;
-        trabajador.sueldo = sueldo;
         alert("Empleado modificado correctamente.");
         mostrarEmpleados();
         deshabilitaropciones();
     }
 }
-
+esMayuscula = function (caracter) {
+    let letra
+    letra = caracter.charCodeAt(0);
+    if (letra >= 65 && letra <= 90) {
+        return true;
+    } else {
+        return false;
+    }
+}
 deshabilitaropciones = function () {
     deshabilitarComponente("btnGuardar");
     deshabilitarComponente("txtCedula");
@@ -223,7 +219,6 @@ ejecutarBusqueda = function () {
     mostrarTextoEnCaja("txtCedula", empleado.cedula);
     mostrarTextoEnCaja("txtNombre", empleado.nombre);
     mostrarTextoEnCaja("txtApellido", empleado.apellido);
-    mostrarTextoEnCaja("txtSueldo", empleado.sueldo);
     deshabilitarComponente("txtCedula");
     habilitarComponente("btnGuardar");
     habilitarComponente("txtNombre");
@@ -249,6 +244,10 @@ limpiar = function () {
     mostrarTextoEnCaja("txtApellido", "");
     mostrarTextoEnCaja("txtSueldo", "");
     mostrarTextoEnCaja("txtBusquedaCedula", "");
+    mostrarTextoEnCaja("lblErrorCedula", "")
+    mostrarTextoEnCaja("lblErrorNombre", "")
+    mostrarTextoEnCaja("lblErrorApellido", "")
+
     deshabilitaropciones();
     esNuevo = false;
 }
@@ -273,16 +272,10 @@ buscarPorRol = function () {
     }
 }
 
-calcularAporteEmpleado = function (sueldo) {
-    let aporte = sueldo * 9.45 / 100;
-    return aporte;
-}
 
 
-calcularValorAPagar = function (sueldo, aporte, descuento) {
-    let valorPagar = sueldo - aporte - descuento;
-    return valorPagar;
-}
+
+
 
 
 calcularRol = function () {
